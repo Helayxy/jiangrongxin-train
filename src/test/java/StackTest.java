@@ -6,7 +6,7 @@ import com.jiangrongxin.train.collection.list.linkedlist.Stack;
  * @author Helay
  * @date 2020/5/14 12:37
  */
-public class TestStack {
+public class StackTest {
     public static void main(String[] args) {
         Stack stack = new Stack();
         stack.myAdd("江融信01");

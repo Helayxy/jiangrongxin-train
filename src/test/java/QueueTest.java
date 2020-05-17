@@ -6,7 +6,7 @@ import com.jiangrongxin.train.collection.list.linkedlist.Queue;
  * @author Helay
  * @date 2020/5/14 12:58
  */
-public class TestQueue {
+public class QueueTest {
     public static void main(String[] args) {
         Queue queue = new Queue();
         queue.myAdd("江融信科技01");
