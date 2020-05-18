@@ -10,7 +10,7 @@ import java.util.List;
  * @author Helay
  * @date 2020/5/14 16:47
  */
-public class TestArrayList {
+public class ArrayListTest {
     public static void main(String[] args) {
         List<String> list = new ArrayList<>();
         list.add("hello");
