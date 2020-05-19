@@ -8,11 +8,7 @@ import java.util.Scanner;
  * @author Helay
  * @date 2020/5/14 18:51
  */
-public class TestArithmeticException {
-    public static void main(String[] args) {
-        System.out.println("----欢迎使用命令行除法计算器----");
-        CMDCalculate();
-    }
+public class ArithmeticException {
 
     /**
      * 使用命令行的方式录入

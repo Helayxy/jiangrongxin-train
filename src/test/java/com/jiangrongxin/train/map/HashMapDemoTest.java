@@ -1,22 +1,16 @@
 package com.jiangrongxin.train.map;
 
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
 /**
- * 该示例用于演示遍历HashMap的几种方式
- *
  * @author Helay
- * @date 2020/5/14 17:02
+ * @date 2020/5/19 17:50
  */
-public class TestHashMap {
+public class HashMapDemoTest {
     public static void main(String[] args) {
-        Map<String, String> map = new HashMap<>();
-        map.put("key1", "value1");
-        map.put("key2", "value2");
-        map.put("key3", "value3");
-        map.put("key4", "value4");
+        HashMapDemo demo = new HashMapDemo();
+        Map<String, String> map = demo.add();
 
         //第一种：通过key，遍历value
         for (String key : map.keySet()) {
@@ -39,6 +33,5 @@ public class TestHashMap {
         for (String value : map.values()) {
             System.out.println(value);
         }
-
     }
 }

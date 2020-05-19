@@ -1,3 +1,5 @@
+package com.jiangrongxin.train.collection.list.linkedlist;
+
 import com.jiangrongxin.train.collection.list.linkedlist.Stack;
 
 /**

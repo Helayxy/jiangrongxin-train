@@ -1,21 +1,18 @@
 package com.jiangrongxin.train.collection.list.arraylist;
 
-import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
 /**
- * 该示例用于演示遍历ArrayList的几种方式
+ * 使用不同的方式遍历ArrayList
  *
  * @author Helay
- * @date 2020/5/14 16:47
+ * @date 2020/5/19 17:27
  */
-public class ArrayListTest {
+public class ArrayListDemoTest {
     public static void main(String[] args) {
-        List<String> list = new ArrayList<>();
-        list.add("hello");
-        list.add("world");
-        list.add("江融信");
+        ArrayListDemo demo = new ArrayListDemo();
+        List<String> list = demo.add();
 
         //第一种：普通for循环遍历
         for (int i = 0; i < list.size(); i++) {
@@ -32,6 +29,5 @@ public class ArrayListTest {
         while (iterator.hasNext()) {
             System.out.println(iterator.next());
         }
-
     }
 }
