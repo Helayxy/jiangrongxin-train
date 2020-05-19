@@ -1,7 +1,5 @@
 package com.jiangrongxin.train.collection.list.linkedlist;
 
-import com.jiangrongxin.train.collection.list.linkedlist.Stack;
-
 /**
  * 测试LinkedList实现栈效果
  *

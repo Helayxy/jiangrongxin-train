@@ -11,8 +11,7 @@ import java.util.Map;
  */
 public class HashMapDemoTest {
     public static void main(String[] args) {
-        HashMapDemo demo = new HashMapDemo();
-        Map<String, String> map = demo.add();
+        Map<String, String> map = HashMapDemo.add();
 
         //第一种：通过key，遍历value
         for (String key : map.keySet()) {

@@ -1,7 +1,5 @@
 package com.jiangrongxin.train.collection.list.linkedlist;
 
-import com.jiangrongxin.train.collection.list.linkedlist.Queue;
-
 /**
  * 测试LinkedList实现队列效果
  *

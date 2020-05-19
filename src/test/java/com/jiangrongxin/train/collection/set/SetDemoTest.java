@@ -10,8 +10,7 @@ import java.util.Set;
  */
 public class SetDemoTest {
     public static void main(String[] args) {
-        SetDemo demo = new SetDemo();
-        Set<String> set = demo.add();
+        Set<String> set = SetDemo.add();
         System.out.println("集合中元素个数：" + set.size());
         System.out.println("集合中元素为：" + set.toString());
     }

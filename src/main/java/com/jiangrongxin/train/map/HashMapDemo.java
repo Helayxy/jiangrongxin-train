@@ -10,7 +10,7 @@ import java.util.Map;
  * @date 2020/5/14 17:02
  */
 public class HashMapDemo {
-    public Map<String, String> add() {
+    public static Map<String, String> add() {
         Map<String, String> map = new HashMap<>();
         map.put("key1", "value1");
         map.put("key2", "value2");

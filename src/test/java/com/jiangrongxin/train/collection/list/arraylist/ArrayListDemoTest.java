@@ -11,8 +11,7 @@ import java.util.List;
  */
 public class ArrayListDemoTest {
     public static void main(String[] args) {
-        ArrayListDemo demo = new ArrayListDemo();
-        List<String> list = demo.add();
+        List<String> list = ArrayListDemo.add();
 
         //第一种：普通for循环遍历
         for (int i = 0; i < list.size(); i++) {

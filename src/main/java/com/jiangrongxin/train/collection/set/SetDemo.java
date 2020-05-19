@@ -10,7 +10,7 @@ import java.util.Set;
  * @date 2020/5/14 10:23
  */
 public class SetDemo {
-    public Set<String> add() {
+    public static Set<String> add() {
         Set<String> set = new HashSet<>();
         set.add("hello world");
         set.add("江融信科技");
