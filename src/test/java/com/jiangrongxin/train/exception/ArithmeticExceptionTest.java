@@ -1,8 +1,10 @@
-package com.jiangrongxin.train.exception.test;
+package com.jiangrongxin.train.exception;
 
 import static com.jiangrongxin.train.exception.ArithmeticException.CMDCalculate;
 
 /**
+ * 测试算术运算异常
+ *
  * @author Helay
  * @date 2020/5/19 17:18
  */

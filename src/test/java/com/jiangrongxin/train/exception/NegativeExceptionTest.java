@@ -1,4 +1,4 @@
-package com.jiangrongxin.train.exception.test;
+package com.jiangrongxin.train.exception;
 
 import com.jiangrongxin.train.exception.NegativeException;
 import com.jiangrongxin.train.exception.NegativeExceptionDemo;
