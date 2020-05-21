@@ -1,4 +1,4 @@
-package com.jiangrongxin.train.regularexpression;
+package com.jiangrongxin.train.regular;
 
 import java.util.List;
 import java.util.Map;
