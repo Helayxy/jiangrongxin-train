@@ -1,5 +1,7 @@
 package com.jiangrongxin.train.util;
 
+import org.junit.Test;
+
 import java.util.Date;
 
 /**
@@ -9,7 +11,8 @@ import java.util.Date;
  * @date 2020/5/19 20:04
  */
 public class DateUtilsTest {
-    public static void main(String[] args) {
+    @Test
+    public void getDateInformation() {
         String strDate = "2020-05-20";
         Date date = DateUtils.parseDate(strDate);
         System.out.println("格式化日期前：" + date);

@@ -1,5 +1,7 @@
 package com.jiangrongxin.train.collection.list.arraylist;
 
+import org.junit.Test;
+
 import java.util.Iterator;
 import java.util.List;
 
@@ -10,7 +12,8 @@ import java.util.List;
  * @date 2020/5/19 17:27
  */
 public class ArrayListDemoTest {
-    public static void main(String[] args) {
+    @Test
+    public void traverseArrayList() {
         List<String> list = ArrayListDemo.add();
 
         //第一种：普通for循环遍历

@@ -1,5 +1,7 @@
 package com.jiangrongxin.train.collection.list.linkedlist;
 
+import org.junit.Test;
+
 /**
  * 测试LinkedList实现栈效果
  *
@@ -7,7 +9,8 @@ package com.jiangrongxin.train.collection.list.linkedlist;
  * @date 2020/5/14 12:37
  */
 public class StackTest {
-    public static void main(String[] args) {
+    @Test
+    public void getStack() {
         Stack stack = new Stack();
         stack.myAdd("江融信01");
         stack.myAdd("江融信02");

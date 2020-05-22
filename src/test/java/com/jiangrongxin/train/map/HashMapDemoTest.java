@@ -1,5 +1,7 @@
 package com.jiangrongxin.train.map;
 
+import org.junit.Test;
+
 import java.util.Iterator;
 import java.util.Map;
 
@@ -10,7 +12,8 @@ import java.util.Map;
  * @date 2020/5/19 17:50
  */
 public class HashMapDemoTest {
-    public static void main(String[] args) {
+    @Test
+    public void traverseHashMap() {
         Map<String, String> map = HashMapDemo.add();
 
         //第一种：通过key，遍历value

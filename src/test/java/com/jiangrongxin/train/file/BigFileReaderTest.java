@@ -1,11 +1,14 @@
 package com.jiangrongxin.train.file;
 
+import org.junit.Test;
+
 /**
  * @author Helay
  * @date 2020/5/21 21:50
  */
 public class BigFileReaderTest {
-    public static void main(String[] args) {
+    @Test
+    public void readBigFile() {
         BigFileReader.Builder builder = new BigFileReader.Builder("C:\\logs\\xc.2020-05-21.log", new IHandle() {
 
             @Override
