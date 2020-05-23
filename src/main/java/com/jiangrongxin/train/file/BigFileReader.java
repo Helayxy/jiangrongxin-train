@@ -27,16 +27,46 @@ import java.util.concurrent.atomic.AtomicLong;
  * @date 2020/5/21 20:52
  */
 public class BigFileReader {
-    private int threadSize;//线程大小
-    private String charset;//字符集
-    private int bufferSize;//缓冲大小
-    private IHandle handle;//自定义处理接口
-    private ExecutorService executorService;//异步执行
-    private long fileLength;//文件大小
-    private RandomAccessFile randomAccessFile;//读取文件，输出数据
-    private Set<StartEndPair> startEndPairs;//使用Set集合存储每个分片的片段
-    private CyclicBarrier cyclicBarrier;//回环栅栏
-    private AtomicLong counter = new AtomicLong(0);//原子变量初始值大小
+    /**
+     * 线程大小
+     */
+    private int threadSize;
+    /**
+     * 字符集
+     */
+    private String charset;
+    /**
+     * 缓冲大小
+     */
+    private int bufferSize;
+    /**
+     * 自定义处理接口
+     */
+    private IHandle handle;
+    /**
+     * 异步执行
+     */
+    private ExecutorService executorService;
+    /**
+     * 文件大小
+     */
+    private long fileLength;
+    /**
+     * 读取文件，输出数据
+     */
+    private RandomAccessFile randomAccessFile;
+    /**
+     * 使用Set集合存储每个分片的片段
+     */
+    private Set<StartEndPair> startEndPairs;
+    /**
+     * 回环栅栏
+     */
+    private CyclicBarrier cyclicBarrier;
+    /**
+     * 原子变量初始值大小
+     */
+    private AtomicLong counter = new AtomicLong(0);
 
     /**
      * 有参构造
@@ -54,11 +84,13 @@ public class BigFileReader {
         this.bufferSize = bufferSize;
         this.threadSize = threadSize;
         try {
-            this.randomAccessFile = new RandomAccessFile(file, "r");//初始化RandomAccessFile类的实例对象
+            //初始化RandomAccessFile类的实例对象
+            this.randomAccessFile = new RandomAccessFile(file, "r");
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-        this.executorService = Executors.newFixedThreadPool(threadSize);//初始化线程池
+        //初始化线程池
+        this.executorService = Executors.newFixedThreadPool(threadSize);
         startEndPairs = new HashSet<>();
     }
 
@@ -176,17 +208,22 @@ public class BigFileReader {
 
         @Override
         public boolean equals(Object obj) {
-            if (this == obj)
+            if (this == obj) {
                 return true;
-            if (obj == null)
+            }
+            if (obj == null) {
                 return false;
-            if (getClass() != obj.getClass())
+            }
+            if (getClass() != obj.getClass()) {
                 return false;
+            }
             StartEndPair other = (StartEndPair) obj;
-            if (end != other.end)
+            if (end != other.end) {
                 return false;
-            if (start != other.start)
+            }
+            if (start != other.start) {
                 return false;
+            }
             return true;
         }
 
@@ -257,8 +294,9 @@ public class BigFileReader {
 
         public Builder(String file, IHandle handle) {
             this.file = new File(file);
-            if (!this.file.exists())
+            if (!this.file.exists()) {
                 throw new IllegalArgumentException("文件不存在！");
+            }
             this.handle = handle;
         }
 

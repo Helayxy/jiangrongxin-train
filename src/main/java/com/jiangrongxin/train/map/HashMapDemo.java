@@ -11,7 +11,7 @@ import java.util.Map;
  */
 public class HashMapDemo {
     public static Map<String, String> add() {
-        Map<String, String> map = new HashMap<>();
+        Map<String, String> map = new HashMap<>(16);
         map.put("key1", "value1");
         map.put("key2", "value2");
         map.put("key3", "value3");

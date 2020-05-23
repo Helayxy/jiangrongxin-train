@@ -50,9 +50,10 @@ public class Address {
         while (matcher.find()) {
             //这里使用LinkedHashMap是要保证元素的有序性
             row = new LinkedHashMap<String, String>();
-
-            country = matcher.group("country");//返回与上一个匹配匹配的输入子序列
-            row.put("country", country == null ? "" : country.trim()); //trim()方法：用于删除字符串的头尾空白符
+            //返回与上一个匹配匹配的输入子序列
+            country = matcher.group("country");
+            //trim()方法：用于删除字符串的头尾空白符
+            row.put("country", country == null ? "" : country.trim());
 
             province = matcher.group("province");
             row.put("province", province == null ? "" : province.trim());

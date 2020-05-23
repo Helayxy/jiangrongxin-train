@@ -6,7 +6,9 @@ package com.jiangrongxin.train.exception;
  */
 public class NegativeException extends Exception {
 
-    //value用于保存发生异常的数
+    /**
+     * value用于保存发生异常的数
+     */
     private int value;
 
     /**
