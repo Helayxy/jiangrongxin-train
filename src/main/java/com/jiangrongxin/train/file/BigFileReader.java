@@ -84,12 +84,12 @@ public class BigFileReader {
         this.bufferSize = bufferSize;
         this.threadSize = threadSize;
         try {
-            //初始化RandomAccessFile类的实例对象
+            // 初始化RandomAccessFile类的实例对象
             this.randomAccessFile = new RandomAccessFile(file, "r");
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-        //初始化线程池
+        // 初始化线程池
         this.executorService = Executors.newFixedThreadPool(threadSize);
         startEndPairs = new HashSet<>();
     }
@@ -98,16 +98,16 @@ public class BigFileReader {
      * 开始读取数据
      */
     public void start() {
-        //每个线程平均读取文件的大小
+        // 每个线程平均读取文件的大小
         long everySize = this.fileLength / this.threadSize;
         try {
-            //递归分片
+            // 递归分片
             calculateStartEnd(0, everySize);
         } catch (IOException e) {
             e.printStackTrace();
             return;
         }
-        //使用系统当前时间作为开始时间
+        // 使用系统当前时间作为开始时间
         final long startTime = System.currentTimeMillis();
         cyclicBarrier = new CyclicBarrier(startEndPairs.size(), new Runnable() {
 
@@ -131,22 +131,22 @@ public class BigFileReader {
      * @throws IOException
      */
     private void calculateStartEnd(long start, long size) throws IOException {
-        //如果开始的位置大于文件-1的大小，则直接返回
+        // 如果开始的位置大于文件-1的大小，则直接返回
         if (start > fileLength - 1) {
             return;
         }
         StartEndPair pair = new StartEndPair();
         pair.start = start;
         long endPosition = start + size - 1;
-        //如果是最后一个分片
+        // 如果是最后一个分片
         if (endPosition >= fileLength - 1) {
             pair.end = fileLength - 1;
             startEndPairs.add(pair);
             return;
         }
-        //还有没有其他分片的数据，将指针移动到上一个分片的末尾
+        // 还有没有其他分片的数据，将指针移动到上一个分片的末尾
         randomAccessFile.seek(endPosition);
-        //由于分割的地方可能在一行数据，所以将结束位置一直移动到这一行
+        // 由于分割的地方可能在一行数据，所以将结束位置一直移动到这一行
         byte tmp = (byte) randomAccessFile.read();
         while (tmp != '\n' && tmp != '\r') {
             endPosition++;
@@ -159,7 +159,7 @@ public class BigFileReader {
         }
         pair.end = endPosition;
         startEndPairs.add(pair);
-        //递归分片
+        // 递归分片
         calculateStartEnd(endPosition + 1, size);
     }
 
@@ -187,9 +187,9 @@ public class BigFileReader {
      * 需要重写hashCode、equals方法判断是否为同一片段
      */
     private static class StartEndPair {
-        //片段的起始位置
+        // 片段的起始位置
         public long start;
-        //片段的结束位置
+        // 片段的结束位置
         public long end;
 
         @Override
@@ -261,7 +261,7 @@ public class BigFileReader {
                     mapBuffer.get(readBuff, 0, readLength);
                     for (int i = 0; i < readLength; i++) {
                         byte tmp = readBuff[i];
-                        //判断换行
+                        // 判断换行
                         if (tmp == '\n' || tmp == '\r') {
                             handle(bos.toByteArray());
                             bos.reset();
@@ -273,7 +273,7 @@ public class BigFileReader {
                 if (bos.size() > 0) {
                     handle(bos.toByteArray());
                 }
-                //测试性能
+                // 测试性能
                 cyclicBarrier.await();
             } catch (Exception e) {
                 e.printStackTrace();
