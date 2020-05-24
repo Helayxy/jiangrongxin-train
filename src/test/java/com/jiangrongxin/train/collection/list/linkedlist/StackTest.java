@@ -16,7 +16,7 @@ public class StackTest {
         stack.myAdd("江融信02");
         stack.myAdd("江融信03");
         stack.myAdd("江融信04");
-        //不为空时，开始输出
+        // 不为空时，开始输出
         while (!stack.isNull()) {
             System.out.println(stack.myGet());
         }

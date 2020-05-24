@@ -14,7 +14,7 @@ public class NegativeExceptionTest {
     public void negativeException() {
         NegativeExceptionDemo d = new NegativeExceptionDemo();
         try {
-            //调用div()方法，设置除数为负数
+            // 调用div()方法，设置除数为负数
             int result = d.div(4, -1);
             System.out.println("result=" + result);
         } catch (NegativeException e) {

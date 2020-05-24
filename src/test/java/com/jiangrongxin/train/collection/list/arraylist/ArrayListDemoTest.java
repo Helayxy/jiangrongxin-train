@@ -16,17 +16,17 @@ public class ArrayListDemoTest {
     public void traverseArrayList() {
         List<String> list = ArrayListDemo.add();
 
-        //第一种：普通for循环遍历
+        // 第一种：普通for循环遍历
         for (int i = 0; i < list.size(); i++) {
             System.out.println(list.get(i));
         }
 
-        //第二种：使用foreach遍历
+        // 第二种：使用foreach遍历
         for (String str : list) {
             System.out.println(str);
         }
 
-        //第三种：使用迭代器遍历
+        // 第三种：使用迭代器遍历
         Iterator<String> iterator = list.iterator();
         while (iterator.hasNext()) {
             System.out.println(iterator.next());

@@ -13,15 +13,15 @@ public class TraverseFile {
      * 递归遍历文件，可以遍历出隐藏文件夹
      */
     public static void traverseTheFile(File file) {
-        //获取文件所在的路径名，以数组形式表示
+        // 获取文件所在的路径名，以数组形式表示
         File[] files = file.listFiles();
-        //遍历该路径名
+        // 遍历该路径名
         for (File f : files) {
-            //如果是目录，则继续递归遍历
+            // 如果是目录，则继续递归遍历
             if (f.isDirectory()) {
                 traverseTheFile(f);
             }
-            //如果是文件，直接输出
+            // 如果是文件，直接输出
             if (f.isFile()) {
                 System.out.println(f);
             }

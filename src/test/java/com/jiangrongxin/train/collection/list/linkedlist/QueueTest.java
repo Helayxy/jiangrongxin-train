@@ -16,7 +16,7 @@ public class QueueTest {
         queue.myAdd("江融信科技02");
         queue.myAdd("江融信科技03");
         queue.myAdd("江融信科技04");
-        //不为空时，开始输出
+        // 不为空时，开始输出
         while (!queue.isNull()) {
             System.out.println(queue.myGet());
         }

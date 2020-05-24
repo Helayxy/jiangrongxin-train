@@ -95,11 +95,11 @@ public class DateUtils {
      * @return
      */
     public static int getYear(Date date) {
-        //获取日历的实例对象
+        // 获取日历的实例对象
         Calendar calendar = Calendar.getInstance();
-        //给当前日历设置时间
+        // 给当前日历设置时间
         calendar.setTime(date);
-        //获取日历的年份
+        // 获取日历的年份
         int year = calendar.get(Calendar.YEAR);
         return year;
     }
@@ -114,7 +114,7 @@ public class DateUtils {
         Calendar c = Calendar.getInstance();
         c.setTime(date);
         int month = c.get(Calendar.MONTH);
-        //这里注意要将返回的月份加1才是中国的日期格式
+        // 这里注意要将返回的月份加1才是中国的日期格式
         return month + 1;
     }
 
@@ -141,9 +141,9 @@ public class DateUtils {
         int season = 0;
         Calendar c = Calendar.getInstance();
         c.setTime(date);
-        //使用月份进行季度划分
+        // 使用月份进行季度划分
         int month = c.get(Calendar.MONTH);
-        //使用switch语句进行判断
+        // 使用switch语句进行判断
         switch (month) {
             case Calendar.JANUARY:
             case Calendar.FEBRUARY:
@@ -191,19 +191,19 @@ public class DateUtils {
      * @return
      */
     public static int getDayOfYear(String date) {
-        //使用数组存放内个月的天数，这里2月份的天数按照平年计算
+        // 使用数组存放内个月的天数，这里2月份的天数按照平年计算
         int[] days = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
-        //字符串的前四位为年份，取出前四位并转换为int类型
+        // 字符串的前四位为年份，取出前四位并转换为int类型
         int year = Integer.parseInt(date.substring(0, 4));
-        //取出月份
+        // 取出月份
         int month = Integer.parseInt(date.substring(5, 7));
-        //取出日期
+        // 取出日期
         int day = Integer.parseInt(date.substring(8, 10));
-        //数组下标从0开始，所以月份要减1
+        // 数组下标从0开始，所以月份要减1
         for (int i = 0; i < month - 1; i++) {
             day += days[i];
         }
-        //平年和闰年的区别在于2月份的天数不一样，如果是闰年，月份大于等于3，则天数要加1
+        // 平年和闰年的区别在于2月份的天数不一样，如果是闰年，月份大于等于3，则天数要加1
         return isLeapYear(year) && month >= 3 ? day + 1 : day;
     }
 
@@ -214,11 +214,11 @@ public class DateUtils {
      * @return
      */
     public static boolean isLeapYear(int year) {
-        //普通闰年：能被4整除，但后两位不以00结尾
+        // 普通闰年：能被4整除，但后两位不以00结尾
         if (year % 4 == 0 && year % 100 != 0) {
             return true;
         }
-        //世纪闰年：能被400整除,且后两位以00结尾
+        // 世纪闰年：能被400整除,且后两位以00结尾
         if (year % 100 == 0 && year % 400 == 0) {
             return true;
         }
@@ -234,7 +234,7 @@ public class DateUtils {
     public static int addMonth(Date date) {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(date);
-        //月份加2，两个参数，第一个为日期类型，第二个为偏移量，正数表示加，负数表示减
+        // 月份加2，两个参数，第一个为日期类型，第二个为偏移量，正数表示加，负数表示减
         calendar.add(Calendar.MONTH, 2);
         int month = calendar.get(Calendar.MONTH);
         return month + 1;

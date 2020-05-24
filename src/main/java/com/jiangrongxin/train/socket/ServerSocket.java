@@ -25,21 +25,21 @@ public class ServerSocket {
     public void getWebPage() throws IOException {
         InetAddress inetAddress = InetAddress.getByName("www.baidu.com");
         Socket socket = new Socket(inetAddress.getHostAddress(), 80);
-        //判断连接是否成功
+        // 判断连接是否成功
         if (socket.isConnected()) {
             System.out.println("连接成功，远程地址是：" + socket.getRemoteSocketAddress());
         }
-        //在Socket的输出流中写入HTTP的GET报文，请求服务器响应
-        //使用缓冲提高效率，需要将字节流转换成字符流，将我们要提交的数据写到输出流中
+        // 在Socket的输出流中写入HTTP的GET报文，请求服务器响应
+        // 使用缓冲提高效率，需要将字节流转换成字符流，将我们要提交的数据写到输出流中
         BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
         writer.write("GET / HTTP/1.1\r\n");
         writer.write("Host: www.baidu.com\r\n");
         writer.write("\r\n");
-        //涉及到字符流操作都要刷新，否则内容读写不成功
+        // 涉及到字符流操作都要刷新，否则内容读写不成功
         writer.flush();
-        //开始读取服务器响应回来的数据
+        // 开始读取服务器响应回来的数据
         BufferedInputStream inputStream = new BufferedInputStream(socket.getInputStream());
-        //定义缓冲区大小
+        // 定义缓冲区大小
         byte[] buffer = new byte[1024];
         int count = 0;
         while (true) {
@@ -49,7 +49,7 @@ public class ServerSocket {
             }
             System.out.println(new String(buffer, 0, count, "utf-8"));
         }
-        //释放资源
+        // 释放资源
         writer.close();
         inputStream.close();
         socket.close();

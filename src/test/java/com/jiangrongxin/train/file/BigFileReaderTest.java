@@ -13,7 +13,7 @@ public class BigFileReaderTest {
 
             @Override
             public void handle(String line) {
-                //如需打印文件内容，可将此打印语句注释放开
+                // 如需打印文件内容，可将此打印语句注释放开
                 //System.out.println(line);
             }
         });
